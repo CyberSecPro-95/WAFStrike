@@ -1,0 +1,136 @@
+# WAFStrike v2.0.0 Configuration File
+# Research-Grade Authorization Testing Framework
+# Override default safety controls and testing parameters
+
+# Safety Controls (v2.0.0 - Research-Grade)
+safety:
+  max_requests_per_target: 50
+  rate_limit_delay: 0.5  # seconds between requests
+  forbidden_status_codes: [200, 201, 202]  # halt on these success codes
+  max_recursion_depth: 2
+  content_harvesting_blocked: false  # v2.0.0: Allow for validation
+  privilege_escalation_blocked: false  # v2.0.0: Allow for testing
+  
+  # v2.0.0: Research-Grade Controls
+  confidence_threshold: 0.75  # Minimum confidence for reporting
+  state_persistence_required: true  # Require persistent access
+  cross_validation_enabled: true  # Enable cross-checks
+
+# Analysis Parameters (v2.0.0 - Enhanced)
+analysis:
+  # Thresholds for behavioral difference detection
+  size_difference_threshold: 100  # bytes
+  response_time_threshold: 500   # milliseconds
+  
+  # Content markers to search for
+  content_markers:
+    - "admin"
+    - "unauthorized" 
+    - "access denied"
+    - "forbidden"
+    - "login"
+    - "dashboard"
+  
+  # v2.0.0: Authorization Validation
+  authorization_state_tracking: true
+  waf_detection_enabled: true
+  backend_correlation_enabled: true
+  confidence_scoring_enabled: true
+
+# Request Variants (v2.0.0 - Enhanced with Context Awareness)
+variants:
+  # Enable/disable specific variant types
+  identity:
+    enabled: true
+    # v2.0.0: Enhanced identity context testing
+    context_aware: true
+    privilege_escalation_testing: true
+    trust_boundary_analysis: true
+    headers:
+      - "X-Forwarded-For"
+      - "X-Real-IP"
+      - "X-Client-IP"
+      - "X-Original-IP"
+      - "CF-Connecting-IP"
+      - "True-Client-IP"
+    
+  routing:
+    enabled: true
+    # v2.0.0: Path normalization testing
+    path_normalization: true
+    traversal_detection: true
+    path_variants:
+      - "append_slash"
+      - "double_slash"
+      - "dot_slash"
+      - "traversal"
+      - "uppercase"
+      - "lowercase"
+    
+  proxy_trust:
+    enabled: true
+    # v2.0.0: Enhanced proxy trust testing
+    header_manipulation: true
+    scheme_bypass: true
+    headers:
+      - "X-Forwarded-Proto"
+      - "X-Forwarded-Scheme"
+      - "X-Forwarded-Host"
+      - "X-Forwarded-Server"
+      - "X-Forwarded-Port"
+      - "Via"
+      - "Forwarded"
+    
+  scheme:
+    enabled: true
+    # v2.0.0: Protocol testing
+    protocol_switching: true
+    schemes:
+      - "http"
+      - "https"
+    
+  port:
+    enabled: true
+    # v2.0.0: Port-based access control testing
+    port_bypass_testing: true
+    ports:
+      - 80
+      - 443
+      - 8080
+      - 8443
+      - 3000
+      - 5000
+
+# Output Configuration (v2.0.0 - Research-Grade Reporting)
+output:
+  # Default verbosity level (1-3)
+  default_verbosity: 1
+  
+  # Include technical details in reports
+  include_technical_details: true  # v2.0.0: Enhanced for research
+  
+  # Export format options
+  export_format: "json"  # json, yaml, csv
+  
+  # v2.0.0: Research-Grade Output
+  confidence_metrics: true
+  state_transitions: true
+  cross_validation_results: true
+  reproduction_steps: true
+
+# Target Configuration (v2.0.0 - Enhanced)
+target:
+  # Default timeout for requests (seconds)
+  request_timeout: 10
+  
+  # User agent string
+  user_agent: "WAFStrike/2.0.0 (Research-Grade Authorization Testing)"
+  
+  # Follow redirects by default
+  follow_redirects: true
+  
+  # v2.0.0: Research-Grade Features
+  adaptive_learning: true
+  waf_fingerprinting: true
+  backend_correlation: true
+
