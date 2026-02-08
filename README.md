@@ -119,7 +119,7 @@ WAFStrike is intended for **authorized security research only**. Users are respo
 
 For professional inquiries, research collaboration, or vulnerability reports:
 
-*   🔵 **LinkedIn:** [Connect with Aryan Akbar Joyia](https://www.linkedin.com)
+*   🔵 **LinkedIn:** [Connect with Aryan Akbar Joyia]([https://www.linkedin.com](https://www.linkedin.com/in/aryan-akbar-joyia/)
 *   ✉️ **Email:** [aryanakbarjoyia@gmail.com](mailto:aryanakbarjoyia@gmail.com)
    
 > **Note:** If you discover a research methodology issue within this framework, please reach out via LinkedIn or Email for responsible disclosure.
